@@ -1,12 +1,14 @@
 package common;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
+import java.util.TreeSet;
 
 public class Startup {
 
@@ -53,11 +55,24 @@ public class Startup {
             System.out.println(found.toString());
         }
         
-        Map<String,Employee> map2 = new TreeMap<String,Employee>(map);
+        Map<String,Employee> map2 = new TreeMap<>(map);
         Set<String> keys2 = map2.keySet();
         for(String key : keys2) {
             Employee found = map.get(key);
             System.out.println(found.toString());
         }
+        
+        Set<Employee> set = new TreeSet<Employee>();
+        set.add(e1);
+        set.add(e2);
+        set.add(e3);
+        set.add(e4);
+             
+    
+       System.out.println("The size of the Sorted Set is: " + set.size());
+        for(Employee e : set) {
+            System.out.println(e);
+        }
     }
 }
+

@@ -1,6 +1,7 @@
 package common;
 
 import java.util.*;
+import org.apache.commons.lang3.builder.CompareToBuilder;
 
 public class Employee {
     private String lastName;
@@ -62,6 +63,15 @@ public class Employee {
         }
         return true;
     }
+    
+     public int compareTo(Object other) {
+        
+        Employee o = (Employee)other;
+        
+        return new CompareToBuilder()
+               .append(this.ssn, o.ssn)
+               .toComparison();
+}
 
     @Override
     public String toString() {
