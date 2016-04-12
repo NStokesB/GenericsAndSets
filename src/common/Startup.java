@@ -1,6 +1,7 @@
 package common;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -42,37 +43,41 @@ public class Startup {
         Employee e3 = new Employee("Mallay", "Fred", "222-22-2222");
         Employee e4 = new Employee("Evans", "Bob", "333-33-3333");
         
-         Map<String, Employee> map =
-                new HashMap<String, Employee>();
+         Map<String, Employee> map = new HashMap<>();
         map.put("111-11-1111", e1);
         map.put("111-11-1111", e2);
         map.put("222-22-2222", e3);
         map.put("333-33-3333", e4);
         
-         Set<String> keys = map.keySet();
+        Employee emp = map.get("333-33-3333");
+        System.out.println(emp);
+        
+        System.out.println("\nLooping over keys....");
+        Set<String> keys = map.keySet();
         for(String key : keys) {
             Employee found = map.get(key);
             System.out.println(found.toString());
         }
         
-        Map<String,Employee> map2 = new TreeMap<>(map);
-        Set<String> keys2 = map2.keySet();
-        for(String key : keys2) {
-            Employee found = map.get(key);
-            System.out.println(found.toString());
+        System.out.println("\nLooping over values....");
+       
+        Collection<Employee> values = map.values();
+        for(Employee key : values) {
+            System.out.println(key);
         }
         
-        Set<Employee> set = new TreeSet<Employee>();
-        set.add(e1);
-        set.add(e2);
-        set.add(e3);
-        set.add(e4);
-             
-    
-       System.out.println("The size of the Sorted Set is: " + set.size());
-        for(Employee e : set) {
-            System.out.println(e);
-        }
+//        Map<Employee, Integer> map2 = new TreeMap<>();
+//        map2.put(e1,1);
+//        map2.put(e2,3);
+//        map2.put(e3,2);
+//        map2.put(e4,4);
+               
+//        Set<Employee> set = new TreeSet<Employee>();
+//        set.add(e1);
+//        set.add(e2);
+//        set.add(e3);
+//        set.add(e4);
+      
     }
 }
 
